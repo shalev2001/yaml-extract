@@ -1,0 +1,9 @@
+version: '3'
+services:
+  yaml-extract:
+       build: .
+       volumes:
+         - C:\Users\shalev\Desktop\yaml.yaml:/tmp/yaml.yaml
+       command: yaml-extract -f /tmp/yaml.yaml -e root.child1
+       #command: -f /tmp/file.yaml
+#       command: /bin/bash -c "sleep 99999"

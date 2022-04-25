@@ -1,0 +1,44 @@
+#!/usr/local/bin/python3
+import yaml
+import argparse
+from time import sleep
+import re
+
+parser = argparse.ArgumentParser(prog='yaml-extract', usage='%(prog)s [OPTIONS]')
+parser.add_argument('-e','--expr' ,type=str,help='The expression to extract')
+parser.add_argument('-f','--file' , type=str,help="The name of a yaml file and his path. ")
+args = parser.parse_args()
+
+def yamlopener():
+    yamlloca = args.file
+    yamlloca = args.file
+    try:
+        with open(yamlloca,'r',encoding="utf8") as f:
+            opener = yaml.safe_load(f)
+    except:
+        print("path not correct")
+    return opener
+
+def dict_get(data: dict, path: str, default=None):
+    pathList = re.split(r"\.|\[", path)
+    result = data
+
+    for key in pathList:
+        try:
+            if key[0].isdigit():
+                key = re.sub(r"]", "", key)
+            if key.isnumeric():
+                key = int(key)
+            else:
+                key
+            result = result[key]
+        except:
+            result = default
+            break
+    return result
+def yamlvalue():
+    stri = args.expr
+    print(dict_get(yamlopener(), stri))
+if __name__ == '__main__':
+   yamlvalue()
+
