@@ -1,4 +1,4 @@
-#yaml-extract
+# yaml-extract
 - The code gets yaml file, and print out the expression that was given as value 
 - how do I run it: `docker compose-up`
 ## usage
@@ -12,5 +12,5 @@
 yaml file location
 - In the command section change the -e to the value you'll need
 
-###Pre-Requisites
+### Pre-Requisites
 - Docker 
